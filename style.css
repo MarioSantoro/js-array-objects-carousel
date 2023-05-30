@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+
+div.container-carousel{
+    width: 1200px;
+    height: 600px;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+
+.carousel-img{
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.active {
+    display: block;
+}
