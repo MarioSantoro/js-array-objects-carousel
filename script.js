@@ -32,6 +32,19 @@ let activeIndex = 0;
 
 document.querySelectorAll("img.carousel-img")[activeIndex].classList.add("active");
 
+const nextButton = document.getElementById("Next-button");
+nextButton.addEventListener("click" , function(){
+    if(activeIndex <= images.length -1){
+        document.querySelectorAll("img.carousel-img")[activeIndex].classList.remove("active");
+        activeIndex ++;
+        document.querySelectorAll("img.carousel-img")[activeIndex].classList.add("active");
+    }else{
+        activeIndex = 0;
+        document.querySelectorAll("img.carousel-img")[activeIndex].classList.add("active");
+    }
+    
+});
+
 function CreateImageCarousel(image){
     const imageCarousel = document.createElement("img");
     imageCarousel.classList.add("carousel-img");
