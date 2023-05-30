@@ -23,6 +23,12 @@ const images = [
 ];
 const CarouselContainer = document.querySelector("div.container-carousel");
 
+const button1 = document.getElementById("btn-1");
+const button2 = document.getElementById("btn-2");
+const button3 = document.getElementById("btn-3");
+const button4 = document.getElementById("btn-4");
+const button5 = document.getElementById("btn-5");
+
 images.forEach((imageElement) =>{
     const imageCarousel = CreateImageCarousel(imageElement.image);
     const titleCarousel = CreateTitle(imageElement.title);
@@ -37,9 +43,9 @@ const imagesOnCarousel = document.querySelectorAll("img.carousel-img");
 const titleOnCarousel = document.querySelectorAll("h2.title");
 const textOnCarousel = document.querySelectorAll("p.text");
 
-imagesOnCarousel[activeIndex].classList.add("active");
-titleOnCarousel[activeIndex].classList.add("active");
-textOnCarousel[activeIndex].classList.add("active");
+imagesOnCarousel[activeIndex].classList.add("active-cs");
+titleOnCarousel[activeIndex].classList.add("active-cs");
+textOnCarousel[activeIndex].classList.add("active-cs");
 const nextButton = document.getElementById("Next-button");
 nextButton.addEventListener("click" , function(){
     if(activeIndex === (images.length -1)){
@@ -94,27 +100,27 @@ function CreateText(text){
 };
 
 function RemoveContentOnCarouselFirst(){
-    imagesOnCarousel[images.length -1].classList.remove("active");
-    titleOnCarousel[images.length -1].classList.remove("active");
-    textOnCarousel[images.length -1].classList.remove("active");
+    imagesOnCarousel[images.length -1].classList.remove("active-cs");
+    titleOnCarousel[images.length -1].classList.remove("active-cs");
+    textOnCarousel[images.length -1].classList.remove("active-cs");
 };
 
 function AddContenrOnCarouselNext(){
-    imagesOnCarousel[activeIndex].classList.add("active");
-    titleOnCarousel[activeIndex].classList.add("active");
-    textOnCarousel[activeIndex].classList.add("active");
+    imagesOnCarousel[activeIndex].classList.add("active-cs");
+    titleOnCarousel[activeIndex].classList.add("active-cs");
+    textOnCarousel[activeIndex].classList.add("active-cs");
 };
 
 function RemoveContentOnCarouselNormal(){
-    imagesOnCarousel[activeIndex].classList.remove("active");
-    titleOnCarousel[activeIndex].classList.remove("active");
-    textOnCarousel[activeIndex].classList.remove("active");
+    imagesOnCarousel[activeIndex].classList.remove("active-cs");
+    titleOnCarousel[activeIndex].classList.remove("active-cs");
+    textOnCarousel[activeIndex].classList.remove("active-cs");
 };
 
 function RemoveContentOnCarousel0(){
-    imagesOnCarousel[0].classList.remove("active");
-    titleOnCarousel[0].classList.remove("active");
-    textOnCarousel[0].classList.remove("active");
+    imagesOnCarousel[0].classList.remove("active-cs");
+    titleOnCarousel[0].classList.remove("active-cs");
+    textOnCarousel[0].classList.remove("active-cs");
 };
 
 function AutoCarousel(){
@@ -127,5 +133,30 @@ function AutoCarousel(){
         activeIndex ++;
         AddContenrOnCarouselNext();
     };
-}
-
+    if(imagesOnCarousel[activeIndex].getAttribute("src") === `./${images[0].image}`){
+        button1.classList.add("active");
+    }else{
+        button1.classList.remove("active");
+    };
+    if(imagesOnCarousel[activeIndex].getAttribute("src") === `./${images[1].image}`){
+        button2.classList.add("active");
+    }else{
+        button2.classList.remove("active");
+    };
+    if(imagesOnCarousel[activeIndex].getAttribute("src") === `./${images[2].image}`){
+        button3.classList.add("active");
+    }else{
+        button3.classList.remove("active");
+    };
+    if(imagesOnCarousel[activeIndex].getAttribute("src") === `./${images[3].image}`){
+        button4.classList.add("active");
+    }else{
+        button4.classList.remove("active");
+    };
+    if(imagesOnCarousel[activeIndex].getAttribute("src") === `./${images[4].image}`){
+        button5.classList.add("active");
+    }else{
+        button5.classList.remove("active");
+    };
+};
+   

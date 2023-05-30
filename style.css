@@ -9,7 +9,11 @@
 main{
     display: flex;
     align-items: center;
-    height: 100vh;
+    height: calc(100vh - 80px);
+}
+
+header{
+    background-color: orangered;
 }
 
 div.container-carousel{
@@ -17,6 +21,8 @@ div.container-carousel{
     height: 600px;
     border: 1px solid black;
     margin: 0 auto;
+    border-radius: 1rem;
+    overflow: hidden;
 }
 
 .carousel-img{
@@ -24,7 +30,7 @@ div.container-carousel{
     width: 0;
     height: 100%;
     object-fit: cover;
-    transition: all 0.55s;
+    transition: all 1s;
 }
 
 .title{
@@ -45,7 +51,7 @@ div.container-carousel{
     text-align: center;
 }
 
-.active {
+.active-cs {
     width: 100%;
 }
 
