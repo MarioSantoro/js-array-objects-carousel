@@ -69,6 +69,8 @@ preButton.addEventListener("click" , function(){
     } 
 });
 
+setInterval(AutoCarousel , 3000);
+
 
 function CreateImageCarousel(image){
     const imageCarousel = document.createElement("img");
@@ -113,5 +115,17 @@ function RemoveContentOnCarousel0(){
     imagesOnCarousel[0].classList.remove("active");
     titleOnCarousel[0].classList.remove("active");
     textOnCarousel[0].classList.remove("active");
+};
+
+function AutoCarousel(){
+    if(activeIndex === (images.length -1)){
+        activeIndex = 0;
+        RemoveContentOnCarouselFirst();
+        AddContenrOnCarouselNext();
+    }else{
+        RemoveContentOnCarouselNormal();
+        activeIndex ++;
+        AddContenrOnCarouselNext();
+    };
 }
 
