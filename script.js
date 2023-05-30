@@ -44,20 +44,12 @@ const nextButton = document.getElementById("Next-button");
 nextButton.addEventListener("click" , function(){
     if(activeIndex === (images.length -1)){
         activeIndex = 0;
-        imagesOnCarousel[images.length -1].classList.remove("active");
-        titleOnCarousel[images.length -1].classList.remove("active");
-        textOnCarousel[images.length -1].classList.remove("active");
-        imagesOnCarousel[activeIndex].classList.add("active");
-        titleOnCarousel[activeIndex].classList.add("active");
-        textOnCarousel[activeIndex].classList.add("active");
+        RemoveContentOnCarouselFirst();
+        AddContenrOnCarouselNext();
     }else{
-        imagesOnCarousel[activeIndex].classList.remove("active");
-        titleOnCarousel[activeIndex].classList.remove("active");
-        textOnCarousel[activeIndex].classList.remove("active");
+        RemoveContentOnCarouselNormal();
         activeIndex ++;
-        imagesOnCarousel[activeIndex].classList.add("active");
-        titleOnCarousel[activeIndex].classList.add("active");
-        textOnCarousel[activeIndex].classList.add("active");
+        AddContenrOnCarouselNext();
     }
     
 });
@@ -68,20 +60,12 @@ const preButton = document.getElementById("Pre-button");
 preButton.addEventListener("click" , function(){
     if(activeIndex === 0){
         activeIndex = images.length -1;
-        imagesOnCarousel[0].classList.remove("active");
-        titleOnCarousel[0].classList.remove("active");
-        textOnCarousel[0].classList.remove("active");
-        imagesOnCarousel[activeIndex].classList.add("active");
-        titleOnCarousel[activeIndex].classList.add("active");
-        textOnCarousel[activeIndex].classList.add("active");
+        RemoveContentOnCarousel0();
+        AddContenrOnCarouselNext();
     }else{
-        imagesOnCarousel[activeIndex].classList.remove("active");
-        titleOnCarousel[activeIndex].classList.remove("active");
-        textOnCarousel[activeIndex].classList.remove("active");
+        RemoveContentOnCarouselNormal();
         activeIndex --;
-        imagesOnCarousel[activeIndex].classList.add("active");
-        titleOnCarousel[activeIndex].classList.add("active");
-        textOnCarousel[activeIndex].classList.add("active");
+        AddContenrOnCarouselNext();
     } 
 });
 
@@ -91,18 +75,42 @@ function CreateImageCarousel(image){
     imageCarousel.classList.add("carousel-img");
     imageCarousel.setAttribute("src" ,`./${image}` );
     return imageCarousel;
-}
+};
 
 function CreateTitle(Title){
     const  titleImage= document.createElement("h2");
     titleImage.classList.add("title");
     titleImage.append(Title);
     return titleImage;
-}
+};
 
 function CreateText(text){
     const  textImage= document.createElement("p");
     textImage.classList.add("text");
     textImage.append(text);
     return textImage;
+};
+
+function RemoveContentOnCarouselFirst(){
+    imagesOnCarousel[images.length -1].classList.remove("active");
+    titleOnCarousel[images.length -1].classList.remove("active");
+    textOnCarousel[images.length -1].classList.remove("active");
+};
+
+function AddContenrOnCarouselNext(){
+    imagesOnCarousel[activeIndex].classList.add("active");
+    titleOnCarousel[activeIndex].classList.add("active");
+    textOnCarousel[activeIndex].classList.add("active");
+};
+
+function RemoveContentOnCarouselNormal(){
+    imagesOnCarousel[activeIndex].classList.remove("active");
+    titleOnCarousel[activeIndex].classList.remove("active");
+    textOnCarousel[activeIndex].classList.remove("active");
+};
+
+function RemoveContentOnCarousel0(){
+    imagesOnCarousel[0].classList.remove("active");
+    titleOnCarousel[0].classList.remove("active");
+    textOnCarousel[0].classList.remove("active");
 }
