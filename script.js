@@ -114,3 +114,4 @@ function RemoveContentOnCarousel0(){
     titleOnCarousel[0].classList.remove("active");
     textOnCarousel[0].classList.remove("active");
 }
+
