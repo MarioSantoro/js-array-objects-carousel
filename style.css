@@ -24,6 +24,24 @@ div.container-carousel{
     object-fit: cover;
 }
 
+.title{
+    display: none;
+    position: absolute;
+
+    bottom: 10%;
+    right: 0;
+    text-align: center;
+}
+
+.text{
+    display: none;
+    position: absolute;
+
+    bottom: 5%;
+    right: 0;
+    text-align: center;
+}
+
 .active {
     display: block;
 }

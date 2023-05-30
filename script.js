@@ -25,23 +25,39 @@ const CarouselContainer = document.querySelector("div.container-carousel");
 
 images.forEach((imageElement) =>{
     const imageCarousel = CreateImageCarousel(imageElement.image);
+    const titleCarousel = CreateTitle(imageElement.title);
+    const textCarousel = CreateText(imageElement.text);
     CarouselContainer.appendChild(imageCarousel);
+    CarouselContainer.appendChild(titleCarousel);
+    CarouselContainer.appendChild(textCarousel);
 });
 
 let activeIndex = 0;
+const imagesOnCarousel = document.querySelectorAll("img.carousel-img");
+const titleOnCarousel = document.querySelectorAll("h2.title");
+const textOnCarousel = document.querySelectorAll("p.text");
 
-document.querySelectorAll("img.carousel-img")[activeIndex].classList.add("active");
-
+imagesOnCarousel[activeIndex].classList.add("active");
+titleOnCarousel[activeIndex].classList.add("active");
+textOnCarousel[activeIndex].classList.add("active");
 const nextButton = document.getElementById("Next-button");
 nextButton.addEventListener("click" , function(){
     if(activeIndex === (images.length -1)){
         activeIndex = 0;
-        document.querySelectorAll("img.carousel-img")[images.length -1].classList.remove("active");
-        document.querySelectorAll("img.carousel-img")[activeIndex].classList.add("active");
+        imagesOnCarousel[images.length -1].classList.remove("active");
+        titleOnCarousel[images.length -1].classList.remove("active");
+        textOnCarousel[images.length -1].classList.remove("active");
+        imagesOnCarousel[activeIndex].classList.add("active");
+        titleOnCarousel[activeIndex].classList.add("active");
+        textOnCarousel[activeIndex].classList.add("active");
     }else{
-        document.querySelectorAll("img.carousel-img")[activeIndex].classList.remove("active");
+        imagesOnCarousel[activeIndex].classList.remove("active");
+        titleOnCarousel[activeIndex].classList.remove("active");
+        textOnCarousel[activeIndex].classList.remove("active");
         activeIndex ++;
-        document.querySelectorAll("img.carousel-img")[activeIndex].classList.add("active");
+        imagesOnCarousel[activeIndex].classList.add("active");
+        titleOnCarousel[activeIndex].classList.add("active");
+        textOnCarousel[activeIndex].classList.add("active");
     }
     
 });
@@ -52,12 +68,20 @@ const preButton = document.getElementById("Pre-button");
 preButton.addEventListener("click" , function(){
     if(activeIndex === 0){
         activeIndex = images.length -1;
-        document.querySelectorAll("img.carousel-img")[0].classList.remove("active");
-        document.querySelectorAll("img.carousel-img")[activeIndex].classList.add("active");
+        imagesOnCarousel[0].classList.remove("active");
+        titleOnCarousel[0].classList.remove("active");
+        textOnCarousel[0].classList.remove("active");
+        imagesOnCarousel[activeIndex].classList.add("active");
+        titleOnCarousel[activeIndex].classList.add("active");
+        textOnCarousel[activeIndex].classList.add("active");
     }else{
-        document.querySelectorAll("img.carousel-img")[activeIndex].classList.remove("active");
+        imagesOnCarousel[activeIndex].classList.remove("active");
+        titleOnCarousel[activeIndex].classList.remove("active");
+        textOnCarousel[activeIndex].classList.remove("active");
         activeIndex --;
-        document.querySelectorAll("img.carousel-img")[activeIndex].classList.add("active");
+        imagesOnCarousel[activeIndex].classList.add("active");
+        titleOnCarousel[activeIndex].classList.add("active");
+        textOnCarousel[activeIndex].classList.add("active");
     } 
 });
 
@@ -67,4 +91,18 @@ function CreateImageCarousel(image){
     imageCarousel.classList.add("carousel-img");
     imageCarousel.setAttribute("src" ,`./${image}` );
     return imageCarousel;
+}
+
+function CreateTitle(Title){
+    const  titleImage= document.createElement("h2");
+    titleImage.classList.add("title");
+    titleImage.append(Title);
+    return titleImage;
+}
+
+function CreateText(text){
+    const  textImage= document.createElement("p");
+    textImage.classList.add("text");
+    textImage.append(text);
+    return textImage;
 }
